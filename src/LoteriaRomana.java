@@ -4,13 +4,13 @@ public class LoteriaRomana {
 
     static int MIN = 0;
     static int MAX = 6;
+    static int contor = 1;
 
     public static void main(String[] args) {
 
         int[] agencyTicket = generateSixRandomNumbers();
         int[] myTicket = generateSixRandomNumbers();
 
-        int contor = 1;
         int guessed = compare(agencyTicket, myTicket);
         int optiune = SkeletonJava.readIntGUI("Cate numere doriti sa ghiciti?");
 
@@ -21,17 +21,74 @@ public class LoteriaRomana {
             guessed = compare(agencyTicket, myTicket);
         }
 
-        System.out.println("We have a winner!");
+        System.out.println("Winner, Winner, Chicken Dinner!");
         System.out.println("Bilet agentie:");
         printTicket(agencyTicket);
         System.out.println("Bilet personal:");
         printTicket(myTicket);
 
         SkeletonJava.printGUI("Ati nimerit " + optiune + " numere dupa " + contor + " incercari!");
+        calcul(optiune);
 
-        if(guessed == 6 && contor <= 1000000)
+        if(guessed == MAX && contor <= 10000)
             System.out.println("LUCKY BASTARD");
 
+    }
+
+    static void calcul(int optiune) {
+
+        double pret = SkeletonJava.readDoubleGUI("Care este pretul unei variante jucate?");
+
+        switch(optiune) {
+
+            case 1: double prize1 = SkeletonJava.readDoubleGUI("Care este premiul?");
+                    double castig1 = prize1 - pret * contor;
+                    if (castig1 >= 0)
+                        SkeletonJava.printGUI("Castigati " + castig1 + " lei");
+                    else
+                        SkeletonJava.printGUI("Pierdeti " + castig1 * (-1) + " lei");
+                    break;
+
+            case 2: double prize2 = SkeletonJava.readDoubleGUI("Care este premiul?");
+                    double castig2 = prize2 - pret * contor;
+                    if (castig2 >= 0)
+                        SkeletonJava.printGUI("Castigati " + castig2 + " lei");
+                    else
+                        SkeletonJava.printGUI("Pierdeti " + castig2 * (-1) + " lei");
+                    break;
+
+            case 3: double prize3 = SkeletonJava.readDoubleGUI("Care este premiul?");
+                    double castig3 = prize3 - pret * contor;
+                    if (castig3 >= 0)
+                        SkeletonJava.printGUI("Castigati " + castig3 + " lei");
+                    else
+                        SkeletonJava.printGUI("Pierdeti " + castig3 * (-1) + " lei");
+                    break;
+
+            case 4: double prize4 = SkeletonJava.readDoubleGUI("Care este premiul?");
+                    double castig4 = prize4 - pret * contor;
+                    if (castig4 >= 0)
+                        SkeletonJava.printGUI("Castigati " + castig4 + " lei");
+                    else
+                        SkeletonJava.printGUI("Pierdeti " + castig4 * (-1) + " lei");
+                    break;
+
+            case 5: double prize5 = SkeletonJava.readDoubleGUI("Care este premiul?");
+                    double castig5 = prize5 - pret * contor;
+                    if (castig5 >= 0)
+                        SkeletonJava.printGUI("Castigati " + castig5 + " lei");
+                    else
+                        SkeletonJava.printGUI("Pierdeti " + castig5 * (-1) + " lei");
+                    break;
+
+            case 6: double prize6 = SkeletonJava.readDoubleGUI("Care este premiul?");
+                    double castig6 = prize6 - pret * contor;
+                    if (castig6 >= 0)
+                        SkeletonJava.printGUI("Castigati " + castig6 + " lei");
+                    else
+                        SkeletonJava.printGUI("Pierdeti " + castig6 * (-1) + " lei");
+                    break;
+        }
     }
 
     static int[] generateSixRandomNumbers() {
