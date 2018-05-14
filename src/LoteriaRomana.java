@@ -105,6 +105,8 @@ public class LoteriaRomana {
             for(int j = MIN + 1; j < MAX; j++) {
                 if (ticket[j - 1] == ticket[j]) {
                     ticket[j] = new Random().nextInt(49) + 1;
+                    while (ticket[j - 1] == ticket[j])
+                        ticket[j] = new Random().nextInt(49) + 1;
                     bubbleSort(ticket);
                 }
             }
