@@ -12,8 +12,9 @@ public class LoteriaRomana {
 
         int contor = 1;
         int guessed = compare(agencyTicket, myTicket);
+        int optiune = SkeletonJava.readIntGUI("Cate numere doriti sa ghiciti?");
 
-        while (guessed < 6) {
+        while (guessed < optiune) {
             myTicket = generateSixRandomNumbers();
             contor++;
             System.out.println(contor);
@@ -25,6 +26,8 @@ public class LoteriaRomana {
         printTicket(agencyTicket);
         System.out.println("Bilet personal:");
         printTicket(myTicket);
+
+        SkeletonJava.printGUI("Ati nimerit " + optiune + " numere dupa " + contor + " incercari!");
 
         if(guessed == 6 && contor <= 1000000)
             System.out.println("LUCKY BASTARD");
