@@ -117,7 +117,7 @@ public class LoteriaRomana {
 
     static void bubbleSort(int[] array) {
 
-        int n = array.length;
+//        int n = array.length;
         int temp = 0;
 
         for (int i = MIN; i < MAX; i++) {
